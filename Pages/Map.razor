@@ -1,0 +1,14 @@
+﻿@inherits MapBase
+@page "/map"
+
+<h1>Map</h1>
+<div>Location: @Longitude, @Latitude</div>
+@*@if (Zone != null)
+{
+    // check restrictions
+}
+else
+{
+    @:You can park here freely.
+}*@
+<MapComponent />
