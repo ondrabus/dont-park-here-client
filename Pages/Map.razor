@@ -3,12 +3,17 @@
 
 <h1>Map</h1>
 <div>Location: @Longitude, @Latitude</div>
-@*@if (Zone != null)
+@if (CurrentZone != null)
 {
     // check restrictions
+    @:You are in the zone @CurrentZone.Name
+    @if (CurrentZone.VisitorRestrictions.Any())
+    {
+        @((MarkupString)string.Join("\n", CurrentZone.VisitorRestrictions.Select(r => r.Description)))
+    }
 }
 else
 {
     @:You can park here freely.
-}*@
+}
 <MapComponent />
